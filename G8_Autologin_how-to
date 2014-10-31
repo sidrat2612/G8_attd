@@ -1,0 +1,26 @@
+#This file defines the way to autologin in minimal system for picuntu-5.5
+
+1. First install mingetty:
+
+	sudo apt-get install mingetty
+
+2. Edit /etc/init/tty1.conf:
+
+	Change:
+
+	exec /sbin/getty -8 38400 tty1
+
+	To:
+
+	exec /sbin/mingetty --autologin root --noclear tty1
+
+3. Edit /root/.profile :
+	
+	Add at EOF:
+
+	cd /G8_attd/
+	./g8_start.sh
+
+4. Reboot and test.
+
+
